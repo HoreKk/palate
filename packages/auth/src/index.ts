@@ -18,6 +18,12 @@ export function createAuth() {
     emailAndPassword: {
       enabled: true,
     },
+    socialProviders: {
+      github: {
+        clientId: env.GITHUB_CLIENT_ID,
+        clientSecret: env.GITHUB_CLIENT_SECRET,
+      },
+    },
     secret: env.BETTER_AUTH_SECRET,
     baseURL: env.BETTER_AUTH_URL,
     plugins: [tanstackStartCookies()],
