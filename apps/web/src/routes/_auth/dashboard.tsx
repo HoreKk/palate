@@ -1,3 +1,4 @@
+import { Box, Heading, Text } from "@chakra-ui/react";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/_auth/dashboard")({
@@ -8,9 +9,9 @@ function RouteComponent() {
   const { session } = Route.useRouteContext();
 
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <p>Welcome {session?.user.name}</p>
-    </div>
+    <Box p="4">
+      <Heading size="xl">Dashboard</Heading>
+      <Text>Welcome {session?.user.name}</Text>
+    </Box>
   );
 }

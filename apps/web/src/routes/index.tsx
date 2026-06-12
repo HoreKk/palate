@@ -1,3 +1,4 @@
+import { Box, Container, Grid, Heading, Text } from "@chakra-ui/react";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
@@ -22,13 +23,17 @@ const TITLE_TEXT = `
 
 function HomeComponent() {
   return (
-    <div className="container mx-auto max-w-3xl px-4 py-2">
-      <pre className="overflow-x-auto font-mono text-sm">{TITLE_TEXT}</pre>
-      <div className="grid gap-6">
-        <section className="rounded-lg border p-4">
-          <h2 className="mb-2 font-medium">API Status</h2>
-        </section>
-      </div>
-    </div>
+    <Container maxW="3xl" px="4" py="2">
+      <Text as="pre" overflowX="auto" fontFamily="mono" fontSize="sm">
+        {TITLE_TEXT}
+      </Text>
+      <Grid gap="6">
+        <Box as="section" rounded="lg" borderWidth="1px" p="4">
+          <Heading mb="2" size="md">
+            API Status
+          </Heading>
+        </Box>
+      </Grid>
+    </Container>
   );
 }

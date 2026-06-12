@@ -1,10 +1,10 @@
-import { Toaster } from "@palate/ui/components/sonner";
+import { Grid } from "@chakra-ui/react";
 import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
 import Header from "../components/header";
-
-import appCss from "../index.css?url";
+import { Provider } from "../components/ui/provider";
+import { Toaster } from "../components/ui/toaster";
 
 export interface RouterAppContext {}
 
@@ -22,12 +22,6 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
         title: "My App",
       },
     ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-    ],
   }),
 
   component: RootDocument,
@@ -35,16 +29,18 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
 
 function RootDocument() {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
       <body>
-        <div className="grid h-svh grid-rows-[auto_1fr]">
-          <Header />
-          <Outlet />
-        </div>
-        <Toaster richColors />
+        <Provider defaultTheme="dark">
+          <Grid height="100svh" templateRows="auto 1fr">
+            <Header />
+            <Outlet />
+          </Grid>
+          <Toaster />
+        </Provider>
         <TanStackRouterDevtools position="bottom-left" />
         <Scripts />
       </body>

@@ -1,12 +1,11 @@
-import { Button } from "@palate/ui/components/button";
-import { Input } from "@palate/ui/components/input";
-import { Label } from "@palate/ui/components/label";
+import { Box, Button, Field, Heading, Input, Stack } from "@chakra-ui/react";
 import { useForm } from "@tanstack/react-form";
 import { useNavigate } from "@tanstack/react-router";
-import { toast } from "sonner";
 import z from "zod";
 
 import { authClient } from "@/lib/auth-client";
+
+import { toaster } from "./ui/toaster";
 
 import Loader from "./loader";
 
@@ -32,10 +31,10 @@ export default function SignInForm({ onSwitchToSignUp }: { onSwitchToSignUp: () 
             navigate({
               to: "/dashboard",
             });
-            toast.success("Sign in successful");
+            toaster.success({ title: "Sign in successful" });
           },
           onError: (error) => {
-            toast.error(error.error.message || error.error.statusText);
+            toaster.error({ title: error.error.message || error.error.statusText });
           },
         },
       );
@@ -53,8 +52,10 @@ export default function SignInForm({ onSwitchToSignUp }: { onSwitchToSignUp: () 
   }
 
   return (
-    <div className="mx-auto w-full mt-10 max-w-md p-6">
-      <h1 className="mb-6 text-center text-3xl font-bold">Welcome Back</h1>
+    <Box mx="auto" w="full" mt="10" maxW="md" p="6">
+      <Heading mb="6" textAlign="center" size="3xl">
+        Welcome Back
+      </Heading>
 
       <form
         onSubmit={(e) => {
@@ -62,13 +63,12 @@ export default function SignInForm({ onSwitchToSignUp }: { onSwitchToSignUp: () 
           e.stopPropagation();
           form.handleSubmit();
         }}
-        className="space-y-4"
       >
-        <div>
+        <Stack gap="4">
           <form.Field name="email">
             {(field) => (
-              <div className="space-y-2">
-                <Label htmlFor={field.name}>Email</Label>
+              <Field.Root invalid={field.state.meta.errors.length > 0}>
+                <Field.Label htmlFor={field.name}>Email</Field.Label>
                 <Input
                   id={field.name}
                   name={field.name}
@@ -78,20 +78,16 @@ export default function SignInForm({ onSwitchToSignUp }: { onSwitchToSignUp: () 
                   onChange={(e) => field.handleChange(e.target.value)}
                 />
                 {field.state.meta.errors.map((error) => (
-                  <p key={error?.message} className="text-red-500">
-                    {error?.message}
-                  </p>
+                  <Field.ErrorText key={error?.message}>{error?.message}</Field.ErrorText>
                 ))}
-              </div>
+              </Field.Root>
             )}
           </form.Field>
-        </div>
 
-        <div>
           <form.Field name="password">
             {(field) => (
-              <div className="space-y-2">
-                <Label htmlFor={field.name}>Password</Label>
+              <Field.Root invalid={field.state.meta.errors.length > 0}>
+                <Field.Label htmlFor={field.name}>Password</Field.Label>
                 <Input
                   id={field.name}
                   name={field.name}
@@ -101,35 +97,29 @@ export default function SignInForm({ onSwitchToSignUp }: { onSwitchToSignUp: () 
                   onChange={(e) => field.handleChange(e.target.value)}
                 />
                 {field.state.meta.errors.map((error) => (
-                  <p key={error?.message} className="text-red-500">
-                    {error?.message}
-                  </p>
+                  <Field.ErrorText key={error?.message}>{error?.message}</Field.ErrorText>
                 ))}
-              </div>
+              </Field.Root>
             )}
           </form.Field>
-        </div>
 
-        <form.Subscribe
-          selector={(state) => ({ canSubmit: state.canSubmit, isSubmitting: state.isSubmitting })}
-        >
-          {({ canSubmit, isSubmitting }) => (
-            <Button type="submit" className="w-full" disabled={!canSubmit || isSubmitting}>
-              {isSubmitting ? "Submitting..." : "Sign In"}
-            </Button>
-          )}
-        </form.Subscribe>
+          <form.Subscribe
+            selector={(state) => ({ canSubmit: state.canSubmit, isSubmitting: state.isSubmitting })}
+          >
+            {({ canSubmit, isSubmitting }) => (
+              <Button type="submit" w="full" disabled={!canSubmit || isSubmitting}>
+                {isSubmitting ? "Submitting..." : "Sign In"}
+              </Button>
+            )}
+          </form.Subscribe>
+        </Stack>
       </form>
 
-      <div className="mt-4 text-center">
-        <Button
-          variant="link"
-          onClick={onSwitchToSignUp}
-          className="text-indigo-600 hover:text-indigo-800"
-        >
+      <Box mt="4" textAlign="center">
+        <Button variant="plain" colorPalette="blue" onClick={onSwitchToSignUp}>
           Need an account? Sign Up
         </Button>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }

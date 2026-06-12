@@ -1,3 +1,4 @@
+import { Box, Flex, HStack } from "@chakra-ui/react";
 import { Link } from "@tanstack/react-router";
 
 import UserMenu from "./user-menu";
@@ -9,9 +10,9 @@ export default function Header() {
   ] as const;
 
   return (
-    <div>
-      <div className="flex flex-row items-center justify-between px-2 py-1">
-        <nav className="flex gap-4 text-lg">
+    <Box borderBottomWidth="1px">
+      <Flex flexDirection="row" alignItems="center" justifyContent="space-between" px="2" py="1">
+        <HStack as="nav" gap="4" fontSize="lg">
           {links.map(({ to, label }) => {
             return (
               <Link key={to} to={to}>
@@ -19,12 +20,11 @@ export default function Header() {
               </Link>
             );
           })}
-        </nav>
-        <div className="flex items-center gap-2">
+        </HStack>
+        <HStack alignItems="center" gap="2">
           <UserMenu />
-        </div>
-      </div>
-      <hr />
-    </div>
+        </HStack>
+      </Flex>
+    </Box>
   );
 }
