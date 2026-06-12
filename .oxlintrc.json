@@ -5,6 +5,7 @@
     "correctness": "error"
   },
   "rules": {},
+  "ignorePatterns": ["apps/web/src/components/ui"],
   "env": {
     "builtin": true
   }

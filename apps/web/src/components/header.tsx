@@ -3,28 +3,65 @@ import { Link } from "@tanstack/react-router";
 
 import UserMenu from "./user-menu";
 
-export default function Header() {
-  const links = [
-    { to: "/", label: "Home" },
-    { to: "/dashboard", label: "Dashboard" },
-  ] as const;
+const navLinks = [
+  { to: "/", hash: "loop", label: "How it works" },
+  { to: "/", hash: "games", label: "The games" },
+  { to: "/", hash: "teams", label: "Teams" },
+  { to: "/patterns", hash: undefined, label: "Patterns" },
+] as const;
 
+export default function Header() {
   return (
-    <Box borderBottomWidth="1px">
-      <Flex flexDirection="row" alignItems="center" justifyContent="space-between" px="2" py="1">
-        <HStack as="nav" gap="4" fontSize="lg">
-          {links.map(({ to, label }) => {
-            return (
-              <Link key={to} to={to}>
-                {label}
-              </Link>
-            );
-          })}
-        </HStack>
-        <HStack alignItems="center" gap="2">
-          <UserMenu />
-        </HStack>
-      </Flex>
-    </Box>
+    <Flex
+      as="header"
+      position="sticky"
+      top="0"
+      zIndex="50"
+      alignItems="center"
+      gap="28px"
+      h="56px"
+      px={{ base: "22px", md: "28px" }}
+      borderBottomWidth="1px"
+      borderColor="border.default"
+      bg="rgba(12, 13, 15, 0.82)"
+      backdropFilter="blur(10px)"
+      style={{ WebkitBackdropFilter: "blur(10px)" }}
+    >
+      <Link to="/">
+        <Box
+          fontFamily="display"
+          fontWeight="700"
+          letterSpacing=".2em"
+          fontSize="15px"
+          color="fg.default"
+        >
+          PALATE
+        </Box>
+      </Link>
+
+      <HStack as="nav" gap="6px" display={{ base: "none", md: "flex" }} ml="6px">
+        {navLinks.map(({ to, hash, label }) => (
+          <Link key={label} to={to} hash={hash}>
+            <Box
+              px="12px"
+              py="6px"
+              borderRadius="4px"
+              color="fg.muted"
+              fontFamily="mono"
+              fontSize="12px"
+              whiteSpace="nowrap"
+              transition="color .15s, background .15s"
+              _hover={{ color: "fg.default", bg: "bg.muted" }}
+            >
+              {label}
+            </Box>
+          </Link>
+        ))}
+      </HStack>
+
+      <HStack ml="auto" alignItems="center" gap="12px">
+        <UserMenu />
+      </HStack>
+    </Flex>
   );
 }

@@ -1,4 +1,4 @@
-import { Button, Menu, Portal, SkeletonText } from "@chakra-ui/react";
+import { Button, HStack, Menu, Portal, SkeletonText } from "@chakra-ui/react";
 import { Link, useNavigate } from "@tanstack/react-router";
 
 import { authClient } from "@/lib/auth-client";
@@ -13,16 +13,21 @@ export default function UserMenu() {
 
   if (!session) {
     return (
-      <Link to="/login">
-        <Button variant="outline">Sign In</Button>
-      </Link>
+      <HStack gap="12px">
+        <Button asChild variant="ghost">
+          <Link to="/login">Sign in</Link>
+        </Button>
+        <Button asChild>
+          <Link to="/login">Launch app →</Link>
+        </Button>
+      </HStack>
     );
   }
 
   return (
     <Menu.Root>
       <Menu.Trigger asChild>
-        <Button variant="outline">{session.user.name}</Button>
+        <Button variant="ghost">{session.user.name}</Button>
       </Menu.Trigger>
       <Portal>
         <Menu.Positioner>
