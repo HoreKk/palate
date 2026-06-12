@@ -1,0 +1,38 @@
+{
+  "name": "palate",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "type": "module",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "check-types": "turbo check-types",
+    "dev:web": "turbo -F web dev",
+    "db:push": "turbo -F @palate/db db:push",
+    "db:studio": "turbo -F @palate/db db:studio",
+    "db:generate": "turbo -F @palate/db db:generate",
+    "db:migrate": "turbo -F @palate/db db:migrate",
+    "db:start": "turbo -F @palate/db db:start",
+    "db:watch": "turbo -F @palate/db db:watch",
+    "db:stop": "turbo -F @palate/db db:stop",
+    "db:down": "turbo -F @palate/db db:down",
+    "check": "oxlint && oxfmt --write"
+  },
+  "dependencies": {
+    "@palate/env": "workspace:*",
+    "dotenv": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@palate/config": "workspace:*",
+    "@types/node": "catalog:",
+    "oxfmt": "^0.53.0",
+    "oxlint": "^1.68.0",
+    "turbo": "^2.9.16",
+    "typescript": "catalog:"
+  },
+  "packageManager": "pnpm@11.6.0"
+}

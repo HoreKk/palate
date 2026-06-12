@@ -1,0 +1,24 @@
+{
+  "name": "@palate/auth",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {},
+  "dependencies": {
+    "@palate/db": "workspace:*",
+    "@palate/env": "workspace:*",
+    "better-auth": "catalog:",
+    "dotenv": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@palate/config": "workspace:*",
+    "typescript": "catalog:"
+  }
+}

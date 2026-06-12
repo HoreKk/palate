@@ -1,0 +1,3 @@
+{
+  "extends": "@palate/config/tsconfig.base.json"
+}
