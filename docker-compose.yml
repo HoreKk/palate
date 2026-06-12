@@ -2,7 +2,7 @@ name: palate
 
 services:
   postgres:
-    image: postgres
+    image: postgres:16
     container_name: palate-postgres
     environment:
       POSTGRES_DB: palate

@@ -1,6 +1,5 @@
 import { Grid } from "@chakra-ui/react";
 import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from "@tanstack/react-router";
-import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
 import Header from "../components/header";
 import { Provider } from "../components/ui/provider";
@@ -41,7 +40,6 @@ function RootDocument() {
           </Grid>
           <Toaster />
         </Provider>
-        <TanStackRouterDevtools position="bottom-left" />
         <Scripts />
       </body>
     </html>
