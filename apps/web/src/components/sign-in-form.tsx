@@ -1,10 +1,11 @@
-import { Box, Button, Field, Heading, Input, Stack } from "@chakra-ui/react";
+import { Box, Button, Field, Heading, Input, Stack, Text } from "@chakra-ui/react";
 import { useForm } from "@tanstack/react-form";
 import { useNavigate } from "@tanstack/react-router";
 import z from "zod";
 
 import { authClient } from "@/lib/auth-client";
 
+import GithubSignInButton from "./github-sign-in-button";
 import { toaster } from "./ui/toaster";
 
 import Loader from "./loader";
@@ -114,6 +115,13 @@ export default function SignInForm({ onSwitchToSignUp }: { onSwitchToSignUp: () 
           </form.Subscribe>
         </Stack>
       </form>
+
+      <Stack gap="4" mt="4">
+        <Text textAlign="center" color="fg.muted" fontSize="sm">
+          or
+        </Text>
+        <GithubSignInButton />
+      </Stack>
 
       <Box mt="4" textAlign="center">
         <Button variant="plain" colorPalette="blue" onClick={onSwitchToSignUp}>
