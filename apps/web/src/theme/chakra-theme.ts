@@ -25,13 +25,13 @@ const config = defineConfig({
       },
       fonts: {
         heading: {
-          value: "Space Grotesk Variable",
+          value: "'Space Grotesk', ui-sans-serif, system-ui, sans-serif",
         },
         body: {
-          value: "JetBrains Mono Variable",
+          value: "'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace",
         },
         mono: {
-          value: "JetBrains Mono Variable",
+          value: "'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace",
         },
       },
       fontSizes: {
@@ -47,6 +47,106 @@ const config = defineConfig({
       },
       sizes: {
         "container.landing": { value: "1180px" },
+      },
+    },
+    textStyles: {
+      eyebrow: {
+        value: {
+          fontFamily: "mono",
+          fontSize: "10.5px",
+          letterSpacing: ".2em",
+          textTransform: "uppercase",
+          color: "accent.default",
+        },
+      },
+      "section-number": {
+        value: {
+          fontFamily: "mono",
+          fontSize: "12px",
+          letterSpacing: ".1em",
+          color: "fg.subtle",
+        },
+      },
+      "section-heading": {
+        value: {
+          fontFamily: "heading",
+          fontWeight: "600",
+          fontSize: "clamp(24px, 2.8vw, 36px)",
+          letterSpacing: "-.02em",
+          lineHeight: "1.1",
+        },
+      },
+      "hero-heading": {
+        value: {
+          fontFamily: "heading",
+          fontWeight: "600",
+          fontSize: "clamp(34px, 4.8vw, 62px)",
+          letterSpacing: "-.025em",
+          lineHeight: "1.04",
+        },
+      },
+      "card-title": {
+        value: {
+          fontFamily: "heading",
+          fontSize: "21px",
+          fontWeight: "600",
+          letterSpacing: "-.025em",
+        },
+      },
+      "body-muted": {
+        value: {
+          color: "fg.muted",
+          lineHeight: "1.7",
+        },
+      },
+      caption: {
+        value: {
+          fontFamily: "mono",
+          fontSize: "12px",
+          color: "fg.subtle",
+          lineHeight: "1.6",
+        },
+      },
+      badge: {
+        value: {
+          fontFamily: "mono",
+          fontSize: "9px",
+          letterSpacing: ".13em",
+          textTransform: "uppercase",
+        },
+      },
+      "big-number": {
+        value: {
+          fontFamily: "heading",
+          fontWeight: "700",
+          fontSize: "38px",
+          lineHeight: "1",
+        },
+      },
+      "step-label": {
+        value: {
+          fontFamily: "heading",
+          fontSize: "14px",
+          fontWeight: "600",
+        },
+      },
+      wordmark: {
+        value: {
+          fontFamily: "heading",
+          fontWeight: "700",
+          letterSpacing: ".2em",
+          color: "fg.muted",
+        },
+      },
+      link: {
+        value: {
+          fontFamily: "mono",
+          fontSize: "12px",
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "6px",
+          transition: "gap .15s",
+        },
       },
     },
     semanticTokens: {

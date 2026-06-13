@@ -1,4 +1,4 @@
-import { Box, Flex, HStack } from "@chakra-ui/react";
+import { Box, Flex, HStack, Heading } from "@chakra-ui/react";
 import { Link } from "@tanstack/react-router";
 
 import UserMenu from "./user-menu";
@@ -28,15 +28,9 @@ export default function Header() {
       style={{ WebkitBackdropFilter: "blur(10px)" }}
     >
       <Link to="/">
-        <Box
-          fontFamily="display"
-          fontWeight="700"
-          letterSpacing=".2em"
-          fontSize="15px"
-          color="fg.default"
-        >
+        <Heading size="md" letterSpacing="widest" color="fg.default">
           PALATE
-        </Box>
+        </Heading>
       </Link>
 
       <HStack as="nav" gap="6px" display={{ base: "none", md: "flex" }} ml="6px">
@@ -47,7 +41,6 @@ export default function Header() {
               py="6px"
               borderRadius="4px"
               color="fg.muted"
-              fontFamily="mono"
               fontSize="12px"
               whiteSpace="nowrap"
               transition="color .15s, background .15s"

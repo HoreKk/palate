@@ -17,14 +17,7 @@ export const Route = createFileRoute("/")({
 
 function MonoLabel({ children }: { children: React.ReactNode }) {
   return (
-    <Text
-      as="span"
-      fontFamily="mono"
-      fontSize="10.5px"
-      letterSpacing=".2em"
-      textTransform="uppercase"
-      color="accent.default"
-    >
+    <Text as="span" textStyle="eyebrow">
       {children}
     </Text>
   );
@@ -32,7 +25,7 @@ function MonoLabel({ children }: { children: React.ReactNode }) {
 
 function SectionNumber({ children }: { children: React.ReactNode }) {
   return (
-    <Text as="span" fontFamily="mono" color="fg.subtle" fontSize="12px" letterSpacing=".1em">
+    <Text as="span" textStyle="section-number">
       {children}
     </Text>
   );
@@ -40,14 +33,7 @@ function SectionNumber({ children }: { children: React.ReactNode }) {
 
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
-    <Heading
-      as="h2"
-      fontFamily="display"
-      fontWeight="600"
-      fontSize="clamp(24px, 2.8vw, 36px)"
-      letterSpacing="-.02em"
-      lineHeight="1.1"
-    >
+    <Heading as="h2" textStyle="section-heading">
       {children}
     </Heading>
   );
@@ -61,7 +47,6 @@ function SessionMock() {
       borderColor="border.default"
       borderRadius="5px"
       overflow="hidden"
-      fontFamily="mono"
       fontSize="12px"
       boxShadow="0 24px 60px -30px rgba(0,0,0,.7)"
     >
@@ -104,7 +89,6 @@ function SessionMock() {
           lineHeight="1.55"
           color="fg.muted"
           fontSize="11.5px"
-          fontFamily="mono"
           m="0"
         >
           <Text as="span" color="fg.subtle">
@@ -204,23 +188,14 @@ function Hero() {
           <Box mb="22px">
             <MonoLabel>Agentic coding · skill training</MonoLabel>
           </Box>
-          <Heading
-            as="h1"
-            fontFamily="display"
-            fontWeight="600"
-            fontSize="clamp(34px, 4.8vw, 62px)"
-            lineHeight="1.04"
-            letterSpacing="-.025em"
-            textWrap="balance"
-            mb="26px"
-          >
+          <Heading as="h1" textStyle="hero-heading" textWrap="balance" mb="26px">
             You don't write the code anymore. You decide whether to{" "}
             <Text as="span" fontStyle="italic" color="accent.default">
               trust it
             </Text>
             .
           </Heading>
-          <Text color="fg.muted" fontSize="15px" lineHeight="1.7" maxW="48ch" textWrap="pretty">
+          <Text textStyle="body-muted" fontSize="15px" maxW="48ch" textWrap="pretty">
             Palate drills the one skill the agents didn't replace: reading a session you didn't run,
             judging an output you didn't write, and knowing exactly when to let it run — and when to
             cut in.
@@ -242,7 +217,6 @@ function Hero() {
             mt="26px"
             alignItems="center"
             color="fg.subtle"
-            fontFamily="mono"
             fontSize="11.5px"
             letterSpacing=".02em"
           >
@@ -289,13 +263,10 @@ function LoopSection() {
         <SectionNumber>01</SectionNumber>
         <SectionHeading>The loop you actually run</SectionHeading>
         <Text
-          color="fg.subtle"
-          fontFamily="mono"
-          fontSize="12px"
+          textStyle="caption"
           ml={{ base: "0", md: "auto" }}
           maxW="38ch"
           textAlign={{ base: "left", md: "right" }}
-          lineHeight="1.6"
           display={{ base: "none", md: "block" }}
         >
           Coding got automated. Judgment didn't. Palate trains the two links that decide the
@@ -316,27 +287,20 @@ function LoopSection() {
             bg={step.hot ? "accent.dim" : "transparent"}
           >
             <Text
-              fontFamily="mono"
               fontSize="10px"
               color={step.hot ? "accent.default" : "fg.subtle"}
               letterSpacing=".12em"
             >
               {step.n}
             </Text>
-            <Text
-              fontFamily="display"
-              fontSize="14px"
-              mt="8px"
-              color={step.hot ? "accent.default" : "fg.muted"}
-              fontWeight="600"
-            >
+            <Text textStyle="step-label" mt="8px" color={step.hot ? "accent.default" : "fg.muted"}>
               {step.label}
             </Text>
           </Box>
         ))}
       </Flex>
 
-      <Text mt="18px" fontFamily="mono" fontSize="12px" color="fg.subtle" lineHeight="1.6">
+      <Text mt="18px" textStyle="caption">
         Palate lives in{" "}
         <Text as="span" color="accent.default" fontWeight="400">
           evaluate
@@ -365,13 +329,10 @@ function GamesSection() {
         <SectionNumber>02</SectionNumber>
         <SectionHeading>Two ways to train your taste</SectionHeading>
         <Text
-          color="fg.subtle"
-          fontFamily="mono"
-          fontSize="12px"
+          textStyle="caption"
           ml={{ base: "0", md: "auto" }}
           maxW="38ch"
           textAlign={{ base: "left", md: "right" }}
-          lineHeight="1.6"
           display={{ base: "none", md: "block" }}
         >
           One builds your timing. One builds your judgment. Both score against ground truth, not an
@@ -390,20 +351,11 @@ function GamesSection() {
           alignItems="stretch"
         >
           <Flex alignItems="center" justifyContent="space-between" gap="12px">
-            <Heading
-              as="h3"
-              fontFamily="display"
-              fontSize="21px"
-              fontWeight="600"
-              letterSpacing="-.025em"
-            >
+            <Heading as="h3" textStyle="card-title">
               Intervention
             </Heading>
             <Text
-              fontFamily="mono"
-              fontSize="9px"
-              letterSpacing=".13em"
-              textTransform="uppercase"
+              textStyle="badge"
               color="accent.default"
               borderWidth="1px"
               borderColor="accent.default"
@@ -414,23 +366,13 @@ function GamesSection() {
               hero
             </Text>
           </Flex>
-          <Text color="fg.muted" fontSize="12.5px" lineHeight="1.65" textWrap="pretty">
+          <Text textStyle="body-muted" fontSize="12.5px" lineHeight="1.65" textWrap="pretty">
             Rejoin a real, anonymised Claude Code session frozen at a decision point — the agent's
             about to act. Let it run, or cut in and pick your lever. Then watch what really
             happened. Truth is free and binary: the run passed or it didn't.
           </Text>
           <Link to="/intervention">
-            <Box
-              mt="auto"
-              color="accent.default"
-              fontFamily="mono"
-              fontSize="12px"
-              display="inline-flex"
-              alignItems="center"
-              gap="6px"
-              transition="gap .15s"
-              _hover={{ gap: "10px" }}
-            >
+            <Box textStyle="link" color="accent.default" mt="auto" _hover={{ gap: "10px" }}>
               Play a session →
             </Box>
           </Link>
@@ -446,20 +388,11 @@ function GamesSection() {
           alignItems="stretch"
         >
           <Flex alignItems="center" justifyContent="space-between" gap="12px">
-            <Heading
-              as="h3"
-              fontFamily="display"
-              fontSize="21px"
-              fontWeight="600"
-              letterSpacing="-.025em"
-            >
+            <Heading as="h3" textStyle="card-title">
               Jury
             </Heading>
             <Text
-              fontFamily="mono"
-              fontSize="9px"
-              letterSpacing=".13em"
-              textTransform="uppercase"
+              textStyle="badge"
               color="fg.subtle"
               borderWidth="1px"
               borderColor="border.strong"
@@ -470,23 +403,13 @@ function GamesSection() {
               calibration
             </Text>
           </Flex>
-          <Text color="fg.muted" fontSize="12.5px" lineHeight="1.65" textWrap="pretty">
+          <Text textStyle="body-muted" fontSize="12.5px" lineHeight="1.65" textWrap="pretty">
             Two outputs, one problem — which solves it better? Vote in pairs and build a judge
             rating from your calibration against the room and the test suite. At the reveal, guess
             which process made each output: one-shot, agentic loop, low effort, rich context.
           </Text>
           <Link to="/dashboard">
-            <Box
-              mt="auto"
-              color="accent.default"
-              fontFamily="mono"
-              fontSize="12px"
-              display="inline-flex"
-              alignItems="center"
-              gap="6px"
-              transition="gap .15s"
-              _hover={{ gap: "10px" }}
-            >
+            <Box textStyle="link" color="accent.default" mt="auto" _hover={{ gap: "10px" }}>
               On the roadmap →
             </Box>
           </Link>
@@ -541,26 +464,13 @@ function StepsSection() {
             p="26px"
             pl={idx === 0 ? "26px" : { base: "26px", md: "22px" }}
           >
-            <Text
-              fontFamily="display"
-              fontWeight="700"
-              fontSize="38px"
-              color="accent.default"
-              lineHeight="1"
-            >
+            <Text textStyle="big-number" color="accent.default">
               {step.n}
             </Text>
-            <Heading
-              as="h3"
-              fontFamily="display"
-              fontSize="16px"
-              fontWeight="600"
-              mt="14px"
-              mb="8px"
-            >
+            <Heading as="h3" textStyle="card-title" fontSize="16px" mt="14px" mb="8px">
               {step.title}
             </Heading>
-            <Text color="fg.muted" fontSize="12px" lineHeight="1.6">
+            <Text textStyle="body-muted" fontSize="12px" lineHeight="1.6">
               {step.body}
             </Text>
           </Box>
@@ -585,19 +495,10 @@ function TeamsSection() {
       >
         <VStack alignItems="flex-start" gap="0">
           <MonoLabel>Teams</MonoLabel>
-          <Heading
-            as="h2"
-            fontFamily="display"
-            fontWeight="600"
-            fontSize="clamp(24px, 2.8vw, 36px)"
-            lineHeight="1.1"
-            letterSpacing="-.02em"
-            mt="12px"
-            mb="16px"
-          >
+          <Heading as="h2" textStyle="section-heading" mt="12px" mb="16px">
             The clash of midi, for agentic coding
           </Heading>
-          <Text color="fg.muted" fontSize="13px" lineHeight="1.7" maxW="54ch">
+          <Text textStyle="body-muted" fontSize="13px" maxW="54ch">
             A host launches a round; everyone plays the same sequence on a timer; calls reveal at
             once. You see how your team voted, debate for two minutes, and find out who actually
             called it. No global ladder — just your team, every week.
@@ -609,14 +510,7 @@ function TeamsSection() {
           </HStack>
         </VStack>
 
-        <VStack
-          alignItems="stretch"
-          gap="12px"
-          fontFamily="mono"
-          fontSize="12px"
-          color="fg.subtle"
-          minW="210px"
-        >
+        <VStack alignItems="stretch" gap="12px" fontSize="12px" color="fg.subtle" minW="210px">
           <HStack gap="11px" alignItems="baseline">
             <Text as="b" color="fg.default" fontWeight="500" fontVariantNumeric="tabular-nums">
               5–8
@@ -657,12 +551,9 @@ function Footer() {
           gap="20px"
           flexWrap="wrap"
           color="fg.subtle"
-          fontFamily="mono"
           fontSize="12px"
         >
-          <Text fontFamily="display" fontWeight="700" letterSpacing=".2em" color="fg.muted">
-            PALATE
-          </Text>
+          <Text textStyle="wordmark">PALATE</Text>
           <HStack gap="18px">
             <Link to="/intervention">
               <Box _hover={{ color: "fg.default" }}>Intervention</Box>
@@ -687,13 +578,12 @@ function HomeComponent() {
       as="main"
       bg="bg.default"
       color="fg.default"
-      fontFamily="mono"
       fontSize="13.5px"
       lineHeight="1.6"
       minH="100vh"
       style={{
         backgroundImage:
-          "radial-gradient(130% 70% at 50% -8%, #15171c 0%, var(--chakra-colors-signal-bg) 55%)",
+          "radial-gradient(130% 70% at 50% -8%, #15171c 0%, var(--chakra-colors-bg-default) 55%)",
       }}
     >
       <Container maxW="container.landing" px={{ base: "22px", md: "40px" }}>
