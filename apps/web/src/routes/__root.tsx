@@ -4,7 +4,7 @@ import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from "@tanst
 import "@fontsource-variable/space-grotesk/index.css";
 import "@fontsource-variable/jetbrains-mono/index.css";
 
-import Navbar from "../components/navbar";
+import Navbar from "../components/layout/navbar";
 import { Provider } from "../components/ui/provider";
 import { Toaster } from "../components/ui/toaster";
 

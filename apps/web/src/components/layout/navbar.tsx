@@ -1,7 +1,7 @@
 import { Box, Flex, HStack, Heading } from "@chakra-ui/react";
 import { Link } from "@tanstack/react-router";
 
-import UserMenu from "./user-menu";
+import UserMenu from "../auth/user-menu";
 
 const navLinks = [
   { to: "/", hash: "loop", label: "How it works" },

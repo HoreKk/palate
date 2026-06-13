@@ -3,7 +3,7 @@ import { FaGithub } from "react-icons/fa";
 
 import { authClient } from "@/lib/auth-client";
 
-import { toaster } from "./ui/toaster";
+import { toaster } from "../ui/toaster";
 
 export default function GithubSignInButton() {
   const handleSignIn = async () => {
