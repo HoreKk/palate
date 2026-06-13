@@ -4,7 +4,7 @@ import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from "@tanst
 import "@fontsource-variable/space-grotesk/index.css";
 import "@fontsource-variable/jetbrains-mono/index.css";
 
-import Header from "../components/header";
+import Navbar from "../components/navbar";
 import { Provider } from "../components/ui/provider";
 import { Toaster } from "../components/ui/toaster";
 
@@ -37,8 +37,8 @@ function RootDocument() {
       </head>
       <body>
         <Provider defaultTheme="dark">
-          <Grid height="100svh" templateRows="auto 1fr">
-            <Header />
+          <Grid minHeight="100svh" templateRows="auto 1fr">
+            <Navbar />
             <Outlet />
           </Grid>
           <Toaster />

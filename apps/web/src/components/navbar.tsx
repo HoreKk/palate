@@ -10,10 +10,10 @@ const navLinks = [
   { to: "/patterns", hash: undefined, label: "Patterns" },
 ] as const;
 
-export default function Header() {
+export default function Navbar() {
   return (
     <Flex
-      as="header"
+      as="nav"
       position="sticky"
       top="0"
       zIndex="50"
