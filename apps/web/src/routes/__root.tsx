@@ -1,8 +1,7 @@
 import { Grid } from "@chakra-ui/react";
 import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from "@tanstack/react-router";
 
-import "@fontsource-variable/space-grotesk/index.css";
-import "@fontsource-variable/jetbrains-mono/index.css";
+import "../fonts.css";
 
 import Navbar from "../components/layout/navbar";
 import { Provider } from "../components/ui/provider";
